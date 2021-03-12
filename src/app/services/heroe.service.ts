@@ -74,6 +74,21 @@ export class HeroesService {
     getHeroes():Heroe[]{
         return this.heroes
     }
+
+    getHeroe(idx:string):Heroe{
+      return this.heroes[idx]
+    }
+    buscarHeroes(termino:string):Heroe[]{
+      let heroesArr:Heroe[] = []
+
+      this.heroes.map(curHeroe=>{
+        const nombre:string = curHeroe.nombre.toLowerCase()
+        if(nombre.indexOf(termino)>=0){ heroesArr.push(curHeroe)}
+      })
+
+      return heroesArr
+    }
+    
 }
 
 

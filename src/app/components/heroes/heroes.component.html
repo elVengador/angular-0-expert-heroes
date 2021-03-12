@@ -2,22 +2,8 @@
 <hr>
 <div class="card-columns">
     
-    <div *ngFor="let heroe of heroes;let i=index" class="card">
-        <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
-        <div class="card-body">
-            <h5 class="card-title">{{heroe.nombre}}</h5>
-            <p class="card-text">{{heroe.bio}}</p>
-            <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
-        </div>
-
-        <!-- redirigir a otra pagina usando una funcion -->
-        <button (click)="verHeroe(i)" class="btn btn-outline-success">Ver mas ...</button>
-
-
-        <!-- importante : al agregar /ruta :le indicamos que se mueva de la pagina actual
-        caso contrario: le indicamos que se mueva de la pagina principal -->
-        <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-success">Ver mas</a> -->
-    </div>
+    
+    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes;let i=index"></app-heroe-tarjeta>
 
 </div>
 

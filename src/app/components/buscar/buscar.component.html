@@ -1,0 +1,13 @@
+<h1>Buscar Heroe: <small>{{term}}</small></h1>
+<hr>
+
+<div *ngIf="heroes.length===0">
+    <p class="alert alert-info">
+        No se encontro Heroes con el termino "{{term}}"
+    </p>
+</div>
+
+<div class="card-columns">
+    <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes;let i=index"></app-heroe-tarjeta>
+    
+</div>
