@@ -81,11 +81,15 @@ export class HeroesService {
     buscarHeroes(termino:string):Heroe[]{
       let heroesArr:Heroe[] = []
 
-      this.heroes.map(curHeroe=>{
-        const nombre:string = curHeroe.nombre.toLowerCase()
-        if(nombre.indexOf(termino)>=0){ heroesArr.push(curHeroe)}
-      })
+      this.heroes.map((curHeroe,idx) => {
+        const nombre = curHeroe.nombre.toLowerCase()
 
+        if(nombre.indexOf(termino) >= 0){ 
+          curHeroe.idx = idx
+          heroesArr.push(curHeroe)
+        }
+
+      })
       return heroesArr
     }
     
@@ -98,4 +102,5 @@ export interface Heroe{
     img:string;
     aparicion:string;
     casa:string;
+    idx?:number;
 }
